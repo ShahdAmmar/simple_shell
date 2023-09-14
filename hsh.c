@@ -13,6 +13,7 @@ char **getinput()
 {
         size_t n = 0;
         char *buff = NULL;
+	char *buff_cp;
         char *delim = " ";
         int count = 0, i;
 	char *token;
@@ -31,14 +32,16 @@ char **getinput()
         }
         if (buff)
         {
-                token = strtok(buff, delim);
+                buff_cp = _strdup(buff);
+		token = strtok(buff, delim);
                 while (token)
                 {
                         count++;
                         token = strtok(NULL, delim);
                 }
 
-                token = strtok(buff, delim);
+		toks = malloc(sizeof(char *) * count);
+                token = strtok(buff_cp, delim);
                 for (i = 0; i < count; i++)
                 {
                         toks[i] = token;
