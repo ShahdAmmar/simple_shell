@@ -15,6 +15,7 @@ int main()
                 if (pid == -1)
                 {
                         perror("fork");
+			free(array);
                         exit(EXIT_FAILURE);
                 }
                 else if (pid == 0)
@@ -23,6 +24,7 @@ int main()
                         if (val == -1)
                         {
                                 perror("excute");
+				free(array);
                                 exit(EXIT_FAILURE);
                         }
                 }

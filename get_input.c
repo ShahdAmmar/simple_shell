@@ -20,8 +20,10 @@ char **getinput()
         ssize_t r = getline(&buff, &n, stdin);
         if (r == -1)
         {
-                if (INTERACTIVE)
-                        _putchar('\n');
+		free(buff);
+		exit(EXIT_FAILURE);
+               /* if (INTERACTIVE)
+                        _putchar('\n');*/
         }
         if (r > 0)
         {
@@ -45,7 +47,7 @@ char **getinput()
                         toks[i] = token;
                         token = strtok(NULL, delim);
                 }
-                free(buff);
         }
+	free(buff);
         return (toks);
 }
