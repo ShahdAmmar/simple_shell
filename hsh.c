@@ -32,6 +32,7 @@ int main()
                 {
                         wait(NULL);
                 }
+		free(array);
         }
         return (0);
 }
