@@ -40,14 +40,16 @@ char **getinput()
                         token = strtok(NULL, delim);
                 }
 
-                toks = malloc(sizeof(char *) * count);
+                toks = malloc(sizeof(char *) * (count + 1));
                 token = strtok(buff_cp, delim);
                 for (i = 0; i < count; i++)
                 {
                         toks[i] = token;
                         token = strtok(NULL, delim);
                 }
+		toks[i] = NULL;
         }
+
 	free(buff);
-        return (toks);
+        return toks;
 }
