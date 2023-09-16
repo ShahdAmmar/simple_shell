@@ -8,13 +8,17 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 
-#define MAX_LETTERS 1000
+#define MAX_LETTERS 1024
 #define INTERACTIVE (isatty(STDIN_FILENO))
 
 int _putchar(char c);
 void _puts(char *str);
 char *_strdup(const char *str);
+
 void prompt();
 char **getinput();
+
+char *ppath(const char *arg, const char *direc);
+char *get_path(char *arg);
 
 #endif
