@@ -14,11 +14,14 @@
 int _putchar(char c);
 void _puts(char *str);
 char *_strdup(const char *str);
+int _strcmp(char *s1, char *s2);
 
 void prompt();
 char **getinput();
 
 char *ppath(const char *arg, const char *direc);
 char *get_path(char *arg);
+
+int check_builtIn(char *arg);
 
 #endif

@@ -2,17 +2,16 @@
 
 int main()
 {
-        char **array;
+        char **array, **env;
 	pid_t pid;
 	char *cmd;
-	char **env;
 
         while (1)
         {
                 if (INTERACTIVE)
                         prompt();
                 array = getinput();
-
+		check_builtIn(array[0]);
                 cmd = get_path(array[0]);
                 if (!cmd)
 		{
@@ -41,10 +40,7 @@ int main()
 			}			
 		}
 		else
-		{
 			wait(NULL);
-		}
-		
 		free(array);
 		free(cmd);
         }
