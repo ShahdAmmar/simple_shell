@@ -12,6 +12,8 @@
 #define INTERACTIVE (isatty(STDIN_FILENO))
 #define MAX_PATH_LENGTH 1024
 
+extern char **environ;
+
 char *ppath(const char *arg, const char *direc);
 char *get_path(char *arg);
 int _putchar(char c);
@@ -26,5 +28,6 @@ char *ppath(const char *arg, const char *direc);
 char *get_path(char *arg);
 
 int check_builtIn(char *arg);
+
 
 #endif
