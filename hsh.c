@@ -2,7 +2,7 @@
 
 int main()
 {
-        char **array, **env;
+        char **array;
 	pid_t pid;
 	char *cmd;
 
@@ -30,7 +30,7 @@ int main()
 		}
 		else if (pid == 0)
 		{
-			int val = execve(cmd, array, env);
+			int val = execve(cmd, array, NULL);
 			if (val == -1)
 			{
 				perror("excute");
