@@ -33,7 +33,7 @@ char *ppath(const char *arg, const char *direc)
 		ans = strdup(path);
 		if (ans == NULL)
 		{
-			perror("strdup");
+			perror("./hsh");
 			exit(EXIT_FAILURE);
 		}
 		return (ans);
@@ -68,7 +68,7 @@ char *get_path(char *arg)
 			tot_path = strdup(temp_path);
 			if (tot_path == NULL)
 			{
-				perror("strdup");
+				perror("./hsh");
 				exit(EXIT_FAILURE);
 			}
 			free(temp_path);
