@@ -10,7 +10,6 @@
 
 #define MAX_LETTERS 1024
 #define INTERACTIVE (isatty(STDIN_FILENO))
-#define MAX_PATH_LENGTH 1024
 
 extern char **environ;
 
