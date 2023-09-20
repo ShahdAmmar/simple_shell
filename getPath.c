@@ -34,7 +34,7 @@ char *ppath(const char *arg, const char *direc)
 		if (ans == NULL)
 		{
 			perror("./hsh");
-			exit(EXIT_FAILURE);
+			/*exit(EXIT_FAILURE);*/
 		}
 		return (ans);
 	}
@@ -69,7 +69,7 @@ char *get_path(char *arg)
 			if (tot_path == NULL)
 			{
 				perror("./hsh");
-				exit(EXIT_FAILURE);
+				/*exit(EXIT_FAILURE);*/
 			}
 			free(temp_path);
 			break;
