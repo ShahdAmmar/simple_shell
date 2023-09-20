@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 {
 	char **array, *cmd;
 	pid_t pid;
-	int c = 0, val, blt;
+	int c = 0, val, blt, sts;
 	(void)argc;
 
 	while (1)
@@ -44,7 +44,7 @@ int main(int argc, char **argv)
 				perror("./hsh"), free(array), free(cmd), exit(0);
 		}
 		else
-			wait(NULL);
+			waitpid(pid, &sts, 0);
 		free(array), free(cmd);
 	}
 	free(array), free(cmd);

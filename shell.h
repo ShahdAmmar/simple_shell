@@ -8,7 +8,7 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 
-#define MAX_LETTERS 1024
+#define MAX_LETTERS 1000000
 #define INTERACTIVE (isatty(STDIN_FILENO))
 
 extern char **environ;
@@ -17,6 +17,7 @@ int _putchar(char c);
 void _puts(char *str);
 char *_strdup(const char *str);
 int _strcmp(char *s1, char *s2);
+/*char *_strcpy(char *dest, char *src);*/
 
 void print_number(int n);
 void _printe(char *filename, int c, char *cmd, char *str);

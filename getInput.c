@@ -19,7 +19,7 @@ char **getinput()
 {
 	size_t n = 0;
 	int count = 0, i;
-	char *buff = NULL, *buff_cp = NULL, *delim = " ", *token;
+	char *buff = NULL, *buff_cp, *delim = " ", *token;
 	char **toks = NULL;
 
 	ssize_t r = getline(&buff, &n, stdin);
