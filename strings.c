@@ -25,6 +25,7 @@ void _puts(char *str)
 	_putchar('\n');
 }
 
+
 /**
  * _strdup - copies the string to another variable
  * @str: constant string

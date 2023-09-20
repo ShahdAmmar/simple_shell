@@ -4,6 +4,7 @@
  * main - the entry point function for this shell
  * Return: return 0 on success
  */
+
 int main(void)
 {
 	char **array, *cmd;
@@ -18,8 +19,7 @@ int main(void)
 		cmd = get_path(array[0]);
 		if (!cmd)
 		{
-			/*_puts("./hsh: command not found");*/
-			perror("./hsh");
+			_puts("./hsh: command not found");
 			free(array), free(cmd);
 			continue;
 		}
