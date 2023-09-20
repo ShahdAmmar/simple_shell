@@ -27,7 +27,7 @@ char **getinput()
 	if (r == -1)
 	{
 		free(buff);
-		/*exit(EXIT_FAILURE);*/
+		exit(EXIT_FAILURE);
 	}
 	if (r > 0)
 	{

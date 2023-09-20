@@ -30,11 +30,11 @@ char *ppath(const char *arg, const char *direc)
 
 	if (access(path, X_OK) != -1)
 	{
-		ans = strdup(path);
+		ans = _strdup(path);
 		if (ans == NULL)
 		{
 			perror("./hsh");
-			/*exit(EXIT_FAILURE);*/
+			exit(EXIT_FAILURE);
 		}
 		return (ans);
 	}
@@ -65,11 +65,11 @@ char *get_path(char *arg)
 		temp_path = ppath(arg, direc);
 		if (temp_path != NULL)
 		{
-			tot_path = strdup(temp_path);
+			tot_path = _strdup(temp_path);
 			if (tot_path == NULL)
 			{
 				perror("./hsh");
-				/*exit(EXIT_FAILURE);*/
+				exit(EXIT_FAILURE);
 			}
 			free(temp_path);
 			break;
