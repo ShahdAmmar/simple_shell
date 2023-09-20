@@ -7,14 +7,15 @@
  *		1 if is builtin
  */
 
-int check_builtIn(char *arg)
+int check_builtIn(char **arg)
 {
-	if (_strcmp(arg, "exit") == 0)
+	if (_strcmp(arg[0], "exit") == 0)
 	{
 		_puts("Exiting Shell");
 		exit(0);
+		return (0);
 	}
-	else if (_strcmp(arg, "env") == 0)
+	else if (_strcmp(arg[0], "env") == 0)
 	{
 		char **env = environ;
 
@@ -23,7 +24,8 @@ int check_builtIn(char *arg)
 			_puts(*env);
 			env++;
 		}
+		return (0);
 	}
 
-	return (0);
+	return (1);
 }

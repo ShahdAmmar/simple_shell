@@ -28,6 +28,6 @@ char **getinput();
 char *ppath(const char *arg, const char *direc);
 char *get_path(char *arg);
 
-int check_builtIn(char *arg);
+int check_builtIn(char **arg);
 
 #endif

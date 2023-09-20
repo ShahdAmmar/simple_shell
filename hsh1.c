@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 {
 	char **array, *cmd;
 	pid_t pid;
-	int c = 0;
+	int c = 0, val, blt;
 	(void)argc;
 
 	while (1)
@@ -21,7 +21,12 @@ int main(int argc, char **argv)
 		array = getinput();
 		if (array != NULL)
 			c++;
-		check_builtIn(array[0]);
+		blt = check_builtIn(array);
+		if (blt == 0)
+		{
+			free(array);
+			continue;
+		}
 		cmd = get_path(array[0]);
 		if (!cmd)
 		{
@@ -34,7 +39,7 @@ int main(int argc, char **argv)
 			perror("./hsh"), free(array), free(cmd), exit(0);
 		else if (pid == 0)
 		{
-			int val = execve(cmd, array, environ);
+			val = execve(cmd, array, environ);
 
 			if (val == -1)
 				perror("./hsh"), free(array), free(cmd), exit(0);

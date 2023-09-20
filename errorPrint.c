@@ -59,5 +59,3 @@ void print_number(int n)
 		print_number(div_10);
 	_putchar(rem_10 + 48);
 }
-
-
