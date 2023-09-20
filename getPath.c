@@ -49,7 +49,7 @@ char *ppath(const char *arg, const char *direc)
  */
 char *get_path(char *arg)
 {
-	char *p = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin";
+	char *p = getenv("$PATH");
 	char *path_cp = _strdup(p);
 	char *direc = strtok(path_cp, ":");
 	char *tot_path = NULL;
