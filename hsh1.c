@@ -44,7 +44,7 @@ int main(int argc, char **argv)
 				perror("./hsh"), free(array), free(cmd), exit(0);
 		}
 		else
-			wait(&status);
+			wait(NULL);
 		free(array), free(cmd);
 	}
 	free(array), free(cmd);
