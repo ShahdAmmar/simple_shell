@@ -51,6 +51,10 @@ char **getinput()
 			token = strtok(NULL, delim);
 		}
 		toks[i] = NULL;
+<<<<<<< HEAD
+=======
+
+>>>>>>> b2edd28257b758e7d97307e74b2b32bbaa7b7d86
 	}
 	free(buff);
 	return (toks);
