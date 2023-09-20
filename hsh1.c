@@ -34,7 +34,7 @@ int main(int argc, char **argv)
 			perror("./hsh"), free(array), free(cmd), exit(0);
 		else if (pid == 0)
 		{
-			int val = execve(cmd, array, NULL);
+			int val = execve(cmd, array, environ);
 
 			if (val == -1)
 				perror("./hsh"), free(array), free(cmd), exit(0);
