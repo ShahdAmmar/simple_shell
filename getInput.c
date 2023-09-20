@@ -51,6 +51,8 @@ char **getinput()
 			token = strtok(NULL, delim);
 		}
 		toks[i] = NULL;
+	
+
 	}
 	free(buff);
 	return (toks);
