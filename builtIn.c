@@ -12,8 +12,7 @@ int check_builtIn(char **arg)
 	if (_strcmp(arg[0], "exit") == 0)
 	{
 		_puts("exit");
-		exit(0);
-		return (0);
+		return 0;
 	}
 	else if (_strcmp(arg[0], "env") == 0)
 	{
@@ -24,10 +23,8 @@ int check_builtIn(char **arg)
 			_puts(*env);
 			env++;
 		}
-	else
-	}
-		return 1;
+		return 0;
 	}
 
-	return 0;
+	return 1;
 }
