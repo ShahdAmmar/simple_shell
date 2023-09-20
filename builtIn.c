@@ -24,9 +24,10 @@ int check_builtIn(char **arg)
 			_puts(*env);
 			env++;
 		}
+	else
 	}
-		return (1);
+		return 1;
 	}
 
-	return (0);
+	return 0;
 }
