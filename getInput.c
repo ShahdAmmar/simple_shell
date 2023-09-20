@@ -52,6 +52,6 @@ char **getinput()
 		}
 		toks[i] = NULL;
 	}
-	free(buff);
+/*	free(buff);*/
 	return (toks);
 }
