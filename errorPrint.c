@@ -56,7 +56,7 @@ void print_number(int n)
 	rem_10 = num % 10;
 
 	if (div_10)
-		print_number(dive_10);
+		print_number(div_10);
 	_putchar(rem_10 + 48);
 }
 
