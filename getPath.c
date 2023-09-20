@@ -64,7 +64,10 @@ char *get_path(char *arg)
 	{
 		tot_path = ppath(arg, direc);
 		if (tot_path == NULL)
+		{
 			direc = strtok(NULL, ":");
+			free(tot_path);
+		}
 		else
 			break;
 	}

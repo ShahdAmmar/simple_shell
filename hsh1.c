@@ -40,7 +40,6 @@ int main(int argc, char **argv)
 		else if (pid == 0)
 		{
 			val = execve(cmd, array, environ);
-
 			if (val == -1)
 				perror("./hsh"), free(array), free(cmd), exit(0);
 		}
