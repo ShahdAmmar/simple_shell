@@ -11,7 +11,7 @@ int check_builtIn(char **arg)
 {
 	if (_strcmp(arg[0], "exit") == 0)
 	{
-		_puts("Exiting Shell");
+		_puts("exit");
 		exit(0);
 		return (0);
 	}
