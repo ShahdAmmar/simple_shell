@@ -28,7 +28,7 @@ int main(void)
 		{
 			perror("./hsh");
 			free(array), free(cmd);
-			exit(EXIT_FAILURE);
+			exit(0);
 		}
 		else if (pid == 0)
 		{
@@ -38,12 +38,13 @@ int main(void)
 			{
 				perror("./hsh");
 				free(array), free(cmd);
-				exit(EXIT_FAILURE);
+				exit(0);
 			}
 		}
 		else
 			wait(NULL);
 		free(array), free(cmd);
 	}
+	free(array), free(cmd);
 	return (0);
 }
