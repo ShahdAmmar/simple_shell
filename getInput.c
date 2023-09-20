@@ -50,8 +50,8 @@ char **getinput()
 			toks[i] = token;
 			token = strtok(NULL, delim);
 		}
-		/*toks[i] = NULL;*/
+		toks[i] = NULL;
 	}
-/*	free(buff);*/
+	free(buff);
 	return (toks);
 }

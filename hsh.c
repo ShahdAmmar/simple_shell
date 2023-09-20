@@ -12,37 +12,41 @@ int main(void)
 	while (1)
 	{
 		if (INTERACTIVE)
+		{
 			prompt();
-		array = getinput();
-		check_builtIn(array[0]);
-		cmd = get_path(array[0]);
-		if (!cmd)
-		{
-			_puts("./hsh: command not found");
-			free(array), free(cmd);
-			continue;
-		}
-		pid = fork();
-		if (pid == -1)
-		{
-			perror("./hsh");
-			free(array), free(cmd);
-			exit(EXIT_FAILURE);
-		}
-		else if (pid == 0)
-		{
-			int val = execve(cmd, array, NULL);
-
-			if (val == -1)
+			array = getinput();
+			check_builtIn(array[0]);
+			cmd = get_path(array[0]);
+			if (!cmd)
+			{
+				_puts("./hsh: command not found");
+				free(array), free(cmd);
+				continue;
+			}
+			pid = fork();
+			if (pid == -1)
 			{
 				perror("./hsh");
 				free(array), free(cmd);
 				exit(EXIT_FAILURE);
 			}
+			else if (pid == 0)
+			{
+				int val = execve(cmd, array, NULL);
+				if (val == -1)
+				{
+					perror("./hsh");
+					free(array), free(cmd);
+					exit(EXIT_FAILURE);
+				}
+			}
+			else
+				wait(NULL);
+			free(array), free(cmd);
 		}
 		else
-			wait(NULL);
-		free(array), free(cmd);
+		{
+		}
 	}
 	return (0);
 }
