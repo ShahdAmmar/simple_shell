@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 {
 	char **array, *cmd;
 	pid_t pid;
-	int c = 0, val, blt, sts;
+	int c = 0, blt;
 	(void)argc;
 
 	while (1)
@@ -24,29 +24,33 @@ int main(int argc, char **argv)
 		blt = check_builtIn(array);
 		if (blt == 0)
 		{
-			free(array);
+			free_the_array(&array);
 			continue;
 		}
 		cmd = get_path(array[0]);
 		if (!cmd)
 		{
 			_printe(argv[0], c, array[0], "not found");
-			free(array), free(cmd);
+			free_the_array(&array), free(cmd), cmd = NULL;
 			continue;
 		}
 		pid = fork();
 		if (pid == -1)
-			perror("./hsh"), free(array), free(cmd), exit(0);
+			perror("./hsh"), free_the_array(&array), free(cmd),cmd = NULL, exit(0);
 		else if (pid == 0)
 		{
-			val = execve(cmd, array, environ);
+			int val = execve(cmd, array, environ);
+
 			if (val == -1)
-				perror("./hsh"), free(array), free(cmd), exit(0);
+				perror("./hsh"), free_the_array(&array), free(cmd), cmd = NULL, exit(0);
 		}
 		else
-			waitpid(pid, &sts, 0);
-		free(array), free(cmd);
+		{
+			wait(NULL);
+			/*free_the_array(&array), free(cmd), cmd = NULL;*/
+		}
+		free(cmd), cmd = NULL;
 	}
-	free(array), free(cmd);
+	free_the_array(&array), free(cmd);
 	return (0);
 }

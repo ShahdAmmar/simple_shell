@@ -19,7 +19,7 @@ char **getinput()
 {
 	size_t n = 0;
 	int count = 0, i;
-	char *buff = NULL, *buff_cp, *delim = " ", *token;
+	char *buff = NULL, *buff_cp, *delim = " \n\t", *token;
 	char **toks = NULL;
 
 	ssize_t r = getline(&buff, &n, stdin);
@@ -47,13 +47,14 @@ char **getinput()
 		token = strtok(buff_cp, delim);
 		for (i = 0; i < count; i++)
 		{
-			toks[i] = token;
+			toks[i] = _strdup(token);
 			token = strtok(NULL, delim);
 		}
 		toks[i] = NULL;
-	
-
 	}
 	free(buff);
+	buff = NULL;
+	free(buff_cp);
+	buff_cp = NULL;
 	return (toks);
 }

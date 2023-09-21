@@ -51,22 +51,6 @@ char *_strdup(const char *str)
 }
 
 /**
- * *_strcpy - copy string
- * @dest: where should the string be copied
- * @src: the string should be copied
- * Return: string
- */
-char *_strcpy(char *dest, char *src)
-{
-        int i;
-
-        for (i = 0; src[i] != '\0'; i++)
-                dest[i] = src[i];
-        dest[i] = '\0';
-        return (dest);
-}
-
-/**
  * _strcmp - compare 2 strings
  * @s1: string 1
  * @s2: string 2
@@ -94,3 +78,19 @@ int _strcmp(char *s1, char *s2)
 	else
 		return (1);
 }
+
+void free_the_array(char ***array)
+{
+	int i = 0;
+
+	if (!(*array))
+	{
+		return;
+	}
+	for (i = 0; (*array)[i] != NULL; i++)
+	{
+		free((*array)[i]), (*array)[i] = NULL;
+	}
+	free(*array), *array = NULL;
+}
+

@@ -34,7 +34,6 @@ char *ppath(const char *arg, const char *direc)
 		if (ans == NULL)
 		{
 			perror("./hsh");
-			free(ans);
 			exit(0);
 		}
 		return (ans);
@@ -53,6 +52,7 @@ char *get_path(char *arg)
 	char *path_cp = _strdup(p);
 	char *direc = strtok(path_cp, ":");
 	char *tot_path = NULL;
+	char *temp_path;
 
 	if (access(arg, X_OK) != -1)
 	{
@@ -62,14 +62,19 @@ char *get_path(char *arg)
 
 	while (direc != NULL)
 	{
-		tot_path = ppath(arg, direc);
-		if (tot_path == NULL)
+		temp_path = ppath(arg, direc);
+		if (temp_path != NULL)
 		{
-			direc = strtok(NULL, ":");
-			free(tot_path);
-		}
-		else
+			tot_path = _strdup(temp_path);
+			if (tot_path == NULL)
+			{
+				perror("./hsh");
+				exit(0);
+			}
+			free(temp_path);
 			break;
+		}
+		direc = strtok(NULL, ":");
 	}
 	free(path_cp);
 	return (tot_path);
