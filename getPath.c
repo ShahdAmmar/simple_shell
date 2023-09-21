@@ -30,7 +30,7 @@ char *ppath(const char *arg, const char *direc)
 
 	if (access(path, X_OK) != -1)
 	{
-		ans = _strdup(path);
+		ans = strdup(path);
 		if (ans == NULL)
 		{
 			perror("./hsh");
@@ -49,7 +49,7 @@ char *ppath(const char *arg, const char *direc)
 char *get_path(char *arg)
 {
 	char *p = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin";
-	char *path_cp = _strdup(p);
+	char *path_cp = strdup(p);
 	char *direc = strtok(path_cp, ":");
 	char *tot_path = NULL;
 	char *temp_path;
@@ -65,7 +65,7 @@ char *get_path(char *arg)
 		temp_path = ppath(arg, direc);
 		if (temp_path != NULL)
 		{
-			tot_path = _strdup(temp_path);
+			tot_path = strdup(temp_path);
 			if (tot_path == NULL)
 			{
 				perror("./hsh");

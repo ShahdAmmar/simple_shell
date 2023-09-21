@@ -36,7 +36,7 @@ char **getinput()
 	}
 	if (buff)
 	{
-		buff_cp = _strdup(buff);
+		buff_cp = strdup(buff);
 		token = strtok(buff, delim);
 		while (token)
 		{

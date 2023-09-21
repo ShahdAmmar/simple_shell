@@ -15,7 +15,7 @@ extern char **environ;
 
 int _putchar(char c);
 void _puts(char *str);
-char *_strdup(const char *str);
+/*char *_strdup(const char *str);*/
 int _strcmp(char *s1, char *s2);
 
 void print_number(int n);
