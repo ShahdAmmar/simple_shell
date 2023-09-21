@@ -25,31 +25,6 @@ void _puts(char *str)
 	_putchar('\n');
 }
 
-
-/**
- * _strdup - copies the string to another variable
- * @str: constant string
- * Return: ptr to copied string
- */
-char *_strdup(const char *str)
-{
-	int len = 0;
-	char *cp_str;
-
-	if (!str)
-		return (NULL);
-	while (*str++)
-		len++;
-
-	cp_str = malloc(sizeof(char) * (len + 1));
-	if (!cp_str)
-		return (NULL);
-	for (len++; len--;)
-		cp_str[len] = *--str;
-
-	return (cp_str);
-}
-
 /**
  * _strcmp - compare 2 strings
  * @s1: string 1
